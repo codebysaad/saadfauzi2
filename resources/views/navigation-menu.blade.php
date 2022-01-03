@@ -12,44 +12,46 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link style="text-decoration:none" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         Dashboard
                     </x-jet-nav-link>
                 </div>
-
+                
                 <div class="mt-4">
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <x-jet-nav-link>
+                                <x-jet-nav-link style="text-decoration:none" href="#">
                                     {{ __('Referensi') }}
                                 </x-jet-nav-link>
                             </div>
                         </x-slot>
 
                         <x-slot name="content">
-                            <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Pengaturan Referensi') }}
                             </div>
 
-                            <x-jet-dropdown-link href="{{ route('gedung') }}" :active="request()->routeIs('gedung')">
+                            <x-jet-dropdown-link style="text-decoration:none" href="{{ route('unit') }}" :active="request()->routeIs('unit')">
+                                {{ __('Unit Kerja') }}
+                            </x-jet-dropdown-link>
+
+                            <x-jet-dropdown-link style="text-decoration:none" href="{{ route('gedung') }}" :active="request()->routeIs('gedung')">
                                 {{ __('Gedung') }}
                             </x-jet-dropdown-link>
 
-                            @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                                <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
-                                    {{ __('API Tokens') }}
-                                </x-jet-dropdown-link>
-                            @endif
+                            <x-jet-dropdown-link style="text-decoration:none" href="{{ route('ruang') }}" :active="request()->routeIs('ruang')">
+                                {{ __('Ruang') }}
+                            </x-jet-dropdown-link>
 
                             <div class="border-t border-gray-100"></div>
                         </x-slot>
                     </x-jet-dropdown>
                 </div>
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('unit') }}" :active="request()->routeIs('unit')">
-                        {{ __('Unit Kerja') }}
+                    <x-jet-nav-link style="text-decoration:none" href="{{ route('kodebarang') }}" :active="request()->routeIs('kodebarang')">
+                        Kode Barang
                     </x-jet-nav-link>
                 </div>
             </div>
@@ -79,12 +81,12 @@
                                     </div>
 
                                     <!-- Team Settings -->
-                                    <x-jet-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
+                                    <x-jet-dropdown-link style="text-decoration:none" href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
                                         {{ __('Team Settings') }}
                                     </x-jet-dropdown-link>
 
                                     @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
-                                        <x-jet-dropdown-link href="{{ route('teams.create') }}">
+                                        <x-jet-dropdown-link style="text-decoration:none" href="{{ route('teams.create') }}">
                                             {{ __('Create New Team') }}
                                         </x-jet-dropdown-link>
                                     @endcan
@@ -132,12 +134,12 @@
                                 {{ __('Manage Account') }}
                             </div>
 
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                            <x-jet-dropdown-link style="text-decoration:none" href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
                             </x-jet-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                                <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
+                                <x-jet-dropdown-link style="text-decoration:none" href="{{ route('api-tokens.index') }}">
                                     {{ __('API Tokens') }}
                                 </x-jet-dropdown-link>
                             @endif
@@ -148,7 +150,7 @@
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
 
-                                <x-jet-dropdown-link href="{{ route('logout') }}"
+                                <x-jet-dropdown-link style="text-decoration:none" href="{{ route('logout') }}"
                                          onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                     {{ __('Log Out') }}

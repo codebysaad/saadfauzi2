@@ -25,7 +25,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'username',
         'email',
+        'role',
+        'id_unit',
+        'position',
         'password',
     ];
 
@@ -58,4 +62,16 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function barang(){
+        return $this->hasMany(Barang::class, 'id_user', 'id');
+    }
+
+    public function ruang(){
+        return $this->hasMany(Ruang::class, 'id_user', 'id');
+    }
+
+    public function unitKerja(){
+        return $this->belongsTo(UnitKerja::class, 'id_unit', 'id');
+    }
 }

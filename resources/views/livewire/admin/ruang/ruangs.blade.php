@@ -1,6 +1,6 @@
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Data Gedung
+        Data Ruangan
     </h2>
 </x-slot>
 <div class="py-12">
@@ -16,27 +16,29 @@
                 </div>
             @endif
 
-            <button wire:click="create()" class="btn btn-success mb-3">Tambah Gedung</button>
+            <button wire:click="create()" class="btn btn-success mb-3">Tambah Ruang</button>
             
             @if($isModal)
-                @include('livewire.admin.gedung.create')
+                @include('livewire.admin.ruang.create')
             @endif
 
             <table class="table w-full">
                 <thead class="table-dark">
                     <tr class="bg-gray-100">
                         <th class="px-4 py-2">No</th>
-                        <th class="px-4 py-2">Nama</th>
-                        <th class="px-4 py-2">ID Unit</th>
+                        <th class="px-4 py-2">Nama Gedung</th>
+                        <th class="px-4 py-2">Nama Ruang</th>
+                        <th class="px-4 py-2">Penanggung Jawab</th>
                         <th class="px-4 py-2">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($gedungs as $row)
+                    @forelse($ruangs as $row)
                         <tr>
                             <td class="border px-4 py-2">{{ $row->id }}</td>
+                            <td class="border px-4 py-2">{{ $row->gedung->name }}</td>
                             <td class="border px-4 py-2">{{ $row->name }}</td>
-                            <td class="border px-4 py-2">{{ $row->id_unit }}</td>
+                            <td class="border px-4 py-2">{{ $row->user->name }}</td>
                             <td class="border px-4 py-2">
                                 <button wire:click="edit({{ $row->id }})" class="btn btn-warning text-white">Edit</button>
                                 <button wire:click="delete({{ $row->id }})" class="btn btn-danger">Hapus</button>
@@ -44,7 +46,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td class="border px-4 py-2 text-center" colspan="5">Tidak ada data</td>
+                            <td class="border px-4 py-2 text-center" colspan="4">Tidak ada data</td>
                         </tr>
                     @endforelse
                 </tbody>

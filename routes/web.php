@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin\Gedung\Gedungs;
 use App\Http\Livewire\Admin\UnitKerja\UnitKerjas;
+use App\Http\Livewire\Admin\Ruang\Ruangs;
+use App\Http\Livewire\Admin\KodeBarang\KodeBarangs;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +28,6 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
 
     Route::get('gedung', Gedungs::class)->name('gedung');
     Route::get('unit', UnitKerjas::class)->name('unit');
+    Route::get('ruang', Ruangs::class)->name('ruang');
+    Route::get('kodebarang', KodeBarangs::class)->name('kodebarang');
 });
