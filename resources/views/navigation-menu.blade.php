@@ -21,15 +21,15 @@
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <x-jet-nav-link style="text-decoration:none" href="#">
-                                    {{ __('Referensi') }}
+                                <x-jet-nav-link style="text-decoration:none" href="#" :active="request()->routeIs('unitkerja', 'gedung', 'ruang')">
+                                    {{ __('Unit') }}
                                 </x-jet-nav-link>
                             </div>
                         </x-slot>
 
                         <x-slot name="content">
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Pengaturan Referensi') }}
+                                {{ __('Referensi Unit') }}
                             </div>
 
                             <x-jet-dropdown-link style="text-decoration:none" href="{{ route('unit') }}" :active="request()->routeIs('unit')">
@@ -48,11 +48,57 @@
                         </x-slot>
                     </x-jet-dropdown>
                 </div>
+                
+                <div class="mt-4">
+                    <x-jet-dropdown align="right" width="48">
+                        <x-slot name="trigger">
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <x-jet-nav-link style="text-decoration:none" href="#" :active="request()->routeIs('kodebarang', 'barang')">
+                                    {{ __('Barang') }}
+                                </x-jet-nav-link>
+                            </div>
+                        </x-slot>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link style="text-decoration:none" href="{{ route('kodebarang') }}" :active="request()->routeIs('kodebarang')">
-                        Kode Barang
-                    </x-jet-nav-link>
+                        <x-slot name="content">
+                            <div class="block px-4 py-2 text-xs text-gray-400">
+                                {{ __('Referensi Barang') }}
+                            </div>
+
+                            <x-jet-dropdown-link style="text-decoration:none" href="{{ route('kodebarang') }}" :active="request()->routeIs('kodebarang')">
+                                {{ __('Kode Barang') }}
+                            </x-jet-dropdown-link>
+
+                            <x-jet-dropdown-link style="text-decoration:none" href="{{ route('barang') }}" :active="request()->routeIs('barang')">
+                                {{ __('Barang') }}
+                            </x-jet-dropdown-link>
+
+                            <div class="border-t border-gray-100"></div>
+                        </x-slot>
+                    </x-jet-dropdown>
+                </div>
+
+                <div class="mt-4">
+                    <x-jet-dropdown align="right" width="48">
+                        <x-slot name="trigger">
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <x-jet-nav-link style="text-decoration:none" href="#" :active="request()->routeIs('user')">
+                                    {{ __('User') }}
+                                </x-jet-nav-link>
+                            </div>
+                        </x-slot>
+
+                        <x-slot name="content">
+                            <div class="block px-4 py-2 text-xs text-gray-400">
+                                {{ __('Manajemen User') }}
+                            </div>
+
+                            <x-jet-dropdown-link style="text-decoration:none" href="{{ route('user') }}" :active="request()->routeIs('user')">
+                                {{ __('User') }}
+                            </x-jet-dropdown-link>
+
+                            <div class="border-t border-gray-100"></div>
+                        </x-slot>
+                    </x-jet-dropdown>
                 </div>
             </div>
 
