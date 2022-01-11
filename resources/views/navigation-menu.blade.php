@@ -53,7 +53,7 @@
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <x-jet-nav-link style="text-decoration:none" href="#" :active="request()->routeIs('kodebarang', 'barang')">
+                                <x-jet-nav-link style="text-decoration:none" href="#" :active="request()->routeIs('kodebarang', 'barang', 'dbr')">
                                     {{ __('Barang') }}
                                 </x-jet-nav-link>
                             </div>
@@ -70,6 +70,10 @@
 
                             <x-jet-dropdown-link style="text-decoration:none" href="{{ route('barang') }}" :active="request()->routeIs('barang')">
                                 {{ __('Barang') }}
+                            </x-jet-dropdown-link>
+                            
+                            <x-jet-dropdown-link style="text-decoration:none" href="{{ route('dbr') }}" :active="request()->routeIs('dbr')">
+                                {{ __('DBR') }}
                             </x-jet-dropdown-link>
 
                             <div class="border-t border-gray-100"></div>

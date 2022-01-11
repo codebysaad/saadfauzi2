@@ -28,7 +28,7 @@ class Barang extends Model
     ];
 
     public function kode() {
-        return $this->hasOne(Barang::class, 'id_barang', 'id');
+        return $this->hasOne(KodeBarang::class, 'id', 'id_barang');
     }
 
     public function unitKerja() {

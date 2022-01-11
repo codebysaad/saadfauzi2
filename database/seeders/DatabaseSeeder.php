@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             UnitKerja::class,
             KodeBarang::class,
             Gedung::class,
+            Ruang::class,
         ]);
     }
 }

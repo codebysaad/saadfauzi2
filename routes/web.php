@@ -6,6 +6,7 @@ use App\Http\Livewire\Admin\UnitKerja\UnitKerjas;
 use App\Http\Livewire\Admin\Ruang\Ruangs;
 use App\Http\Livewire\Admin\KodeBarang\KodeBarangs;
 use App\Http\Livewire\Admin\Barang\Barangs;
+use App\Http\Livewire\Admin\Barang\Dbr;
 use App\Http\Livewire\Admin\User\Users;
 
 /*
@@ -33,5 +34,6 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
     Route::get('ruang', Ruangs::class)->name('ruang');
     Route::get('kodebarang', KodeBarangs::class)->name('kodebarang');
     Route::get('barang', Barangs::class)->name('barang');
+    Route::get('dbr', Dbr::class)->name('dbr');
     Route::get('user', Users::class)->name('user');
 });

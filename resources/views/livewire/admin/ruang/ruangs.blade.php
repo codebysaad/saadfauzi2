@@ -46,7 +46,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td class="border px-4 py-2 text-center" colspan="4">Tidak ada data</td>
+                            <td class="border px-4 py-2 text-center" colspan="5">Tidak ada data</td>
                         </tr>
                     @endforelse
                 </tbody>
